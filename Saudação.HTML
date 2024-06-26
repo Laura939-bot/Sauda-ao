@@ -1,0 +1,172 @@
+
+<!DOCTYPEhtml>
+ <html lang="pt">
+ <cabeça>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="largura=largura do dispositivo, escala inicial=1,0">
+     <title>Saudações</title>
+
+     <estilo>
+
+
+         corpo{
+             font-variant-caps: all-petite-caps;
+
+
+         }
+
+         .ferramenta {
+             preenchimento: 5px 5px;
+             cor: #000000;
+             exibição: flexível;
+             justificar-conteúdo:centro;
+             alinhar itens: centro;
+             direção flexível: coluna;
+             largura máxima: 95%;
+             margem: automático;
+             borda: 3px sólido #000000;
+             raio da borda: 5px;
+             sombra da caixa: 2px 2px 1px 0px #000000;
+
+         }
+
+           
+         .saudar{
+             tamanho da fonte: 3em;
+         }
+
+         .data {
+      
+             família de fontes: monoespaçada;
+             tamanho da fonte: 2em;
+         }
+
+         .relógio {
+             família de fontes: monoespaçada;
+             tamanho da fonte: 2em;
+         }
+
+         .tempo {
+             display: bloco embutido;
+             largura mínima: 20px;
+         }
+
+         .dois pontos {
+             tamanho da fonte: 1em;
+             display: bloco embutido;
+         }
+
+     
+
+
+
+
+     </estilo>
+ </head>
+ <corpo>
+
+
+
+
+ <div class="container>">
+     <div class="widget">
+
+             <div class="greet" id="greet"></div>
+
+                 <div class="data" id="data"></div>
+                 <div class="relógio">
+                     <div class="time" id="hora"></div>
+                     <div class="dois pontos">:</div>
+                     <div class="time" id="min"></div>
+                     <div class="dois pontos">:</div>
+                     <div class="time" id="sec"></div>
+                 </div>
+           
+
+        
+
+     </div>
+ </div>
+        
+
+
+
+ <roteiro>
+
+ function displayGreetings(hoje){
+         horas = hoje.getHours();
+         nome=""
+         se (horas <12)
+             cumprimentar = 'Bom dia' +nome;
+         senão if (horas >= 12 && horas <= 17)
+             saudação = 'Boa tarde' +nome;
+         senão if (horas >= 17 && horas <= 24)
+             cumprimentar = 'Boa noite' +nome;
+         document.getElementById('saudação').innerHTML = saudação;
+
+     }
+
+     function displayDate(hoje) {  
+       
+         const dias = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+         const mêsNomes = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",
+   "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+ ];
+
+         var dayName = dias[today.getDay()];
+         var nomeNome = mêsNomes[today.getMonth()];
+         var data = hoje.getDate();
+         var ano = hoje.getFullYear();
+         document.getElementById('data').innerHTML =diaNome+", "+mêsNome+" "+data+" "+ano;
+
+     }
+
+
+     function displayClock(hoje) {
+
+         var hora = padZeros(dozeHoras(today.getHours()));
+         var minutos = padZeros(today.getMinutes());
+         var segundos = padZeros(today.getSeconds());
+       
+         if(hoje.getHours() >=12){
+             segundos+="pm"
+         }
+         outro{
+             segundos+="sou"
+         }
+       
+         document.getElementById('hora').innerHTML = hora;
+         document.getElementById('min').innerHTML = minutos;
+         document.getElementById('sec').innerHTML = segundos;
+     }
+
+     função dozeHora(hora) {
+         if (hora > 12) {
+             hora de retorno -= 12
+         } else if (hora === 0) {
+             hora de retorno = 12;
+         } outro {
+             hora de retorno
+         }
+     }
+     função padZeros(num) {
+         se (num < 10) {
+             num = '0' + num
+         };
+         retornar num;
+     }
+
+     function displayWidget() {
+         var hoje = nova Data();
+         exibirSaudações(hoje);
+         data de exibição(hoje);
+         displayClock(hoje);
+         setTimeout(dispalyWidget, 500);
+     }
+
+     displayWidget()
+
+ </script>
+
+ </body>
+ </html>
